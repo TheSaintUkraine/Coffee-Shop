@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/bootstrap-grid.css">
+<link rel="stylesheet" href="/css/main.css">
+    <title>{{title}}</title>
+</head>
+<body>
+    <script src="/jquery.js"></script>
+    <script src="/scrollTo.js"></script>
+    {{> mobileMenu}}
+    <div id="top" class="container-fluid modal-wrap">
+        <div class="row modal">
+            <div class="row"><p class="close-modal">Закрыть</p></div>
+    </div>
+    </div>
+    <div class="container-fluid">
+        {{> header}}
+        <div class="row main">
+            <div class="col-2 sidebar">
+                <h2>Фильтр</h2>
+                <div class="line"></div>
+                <p class="sidebar-title">Цена</p>
+                <div class="wrap-input-sidebar">
+                    <div class="input-sidebar">
+                        <p>от</p>
+                        <input placeholder="0" id="price-from" type="text">
+                    </div>
+                    <div class="input-sidebar">
+                        <p>до</p>
+                        <input placeholder="2000" id="price-to"type="text">
+                    </div>
+                </div>
+                <p class="sidebar-title">Вид кофе</p>
+                <p class="input-checkbox"><input  class="checkbox-filter" onchange="checkboxOn('type_coffee',this)" type="checkbox" value="Ароматизированний"  name="type_coffee" id=""> Ароматизированний</p>
+                <p class="input-checkbox"><input  class="checkbox-filter"onchange="checkboxOn('type_coffee',this)"type="checkbox"value="Моносорт" name="type_coffee" id=""> Моносорт</p>
+                <p class="input-checkbox"><input class="checkbox-filter"onchange="checkboxOn('type_coffee',this)"type="checkbox" name="type_coffee"value="Без кофеина" id=""> Без кофеина</p>
+                <p class="input-checkbox"><input class="checkbox-filter"onchange="checkboxOn('type_coffee',this)"type="checkbox" name="type_coffee"value="Органический" id=""> Органический</p>
+                <p class="input-checkbox"><input class="checkbox-filter"onchange="checkboxOn('type_coffee',this)"type="checkbox" name="type_coffee"value="Бленд" id=""> Бленд</p>
+
+                <p class="sidebar-title">Вес зерно</p>
+                <p class="input-checkbox"><input class="checkbox-filter"onchange="checkboxOn('weight_coffee',this)" type="checkbox" name="weight_coffee"value="200 г" id=""> 200 г</p>
+                <p class="input-checkbox"><input class="checkbox-filter"onchange="checkboxOn('weight_coffee',this)" type="checkbox" name="weight_coffee"value="340 г" id=""> 340 г</p>
+                <p class="input-checkbox"><input class="checkbox-filter"type="checkbox"onchange="checkboxOn('weight_coffee',this)" name="weight_coffee"value="907 г" id=""> 907 г</p>
+                <p class="input-checkbox"><input class="checkbox-filter"type="checkbox"onchange="checkboxOn('weight_coffee',this)" name="weight_coffee"value="1 кг" id=""> 1 кг</p>
+                <p class="input-checkbox"><input class="checkbox-filter"type="checkbox"onchange="checkboxOn('weight_coffee',this)" name="weight_coffee"value="2.268 кг." id=""> 2.268 кг.</p>
+                <p class="input-checkbox"><input class="checkbox-filter"type="checkbox"onchange="checkboxOn('weight_coffee',this)" name="weight_coffee"value="3 кг" id=""> 3 кг</p>
+
+                <p class="sidebar-title">Страна производитель</p>
+                <p class="input-checkbox"><input class="checkbox-filter"type="checkbox" onchange="checkboxOn('country_coffee',this)"name="country_coffee"value="Канада" id=""> Канада</p>
+                <p class="input-checkbox"><input class="checkbox-filter"type="checkbox"onchange="checkboxOn('country_coffee',this)" name="country_coffee"value="Польша" id=""> Польша</p>
+                <p class="input-checkbox"><input class="checkbox-filter"type="checkbox"onchange="checkboxOn('country_coffee',this)" name="country_coffee"value="Австрия" id=""> Австрия</p>
+                <p class="input-checkbox"><input class="checkbox-filter"type="checkbox"onchange="checkboxOn('country_coffee',this)" name="country_coffee"value="Бразилия" id=""> Бразилия</p>
+                <p class="input-checkbox"><input class="checkbox-filter"type="checkbox"onchange="checkboxOn('country_coffee',this)" name="country_coffee"value="Франция" id=""> Франция</p>
+
+                <p class="sidebar-title">Обжарка</p>
+                <p class="input-checkbox"><input class="checkbox-filter"type="checkbox"onchange="checkboxOn('roasting_coffee',this)" name="roasting_coffee"value="Светло-средняя" id=""> Светло-средняя</p>
+                <p class="input-checkbox"><input class="checkbox-filter"type="checkbox"onchange="checkboxOn('roasting_coffee',this)" name="roasting_coffee"value="Средняя" id=""> Средняя</p>
+                <p class="input-checkbox"><input class="checkbox-filter"type="checkbox" onchange="checkboxOn('roasting_coffee',this)"name="roasting_coffee"value="Средне-темная" id=""> Средне-темная</p>
+                <p class="input-checkbox"><input class="checkbox-filter"type="checkbox" onchange="checkboxOn('roasting_coffee',this)"name="roasting_coffee"value="Темная" id=""> Темная</p>
+
+                <p class="sidebar-title">Сорт кофе</p>
+                <p class="input-checkbox"><input class="checkbox-filter"type="checkbox"onchange="checkboxOn('sort_coffee',this)" name="sort_coffee"value="100% Арабика" id=""> 100% Арабика</p>
+                <p class="input-checkbox"><input class="checkbox-filter"type="checkbox"onchange="checkboxOn('sort_coffee',this)" name="sort_coffee"value="Смесь" id=""> Смесь</p>
+
+                <div class="wrap-black-button">
+                    <button onclick="filter()"  class="black-button">Применить</button>
+                    <p style="cursor: pointer;" onclick="setFalseCheckbox()">Отменить</p>
+                </div>
+            </div>
+            <div class="col-10 goods-wrap">
+                <div class="accardione">
+                    <div onclick="showMobileFiltres()" class="acc-control">
+                        <img src="/images/arrow-down.png" alt="">
+                        <p>Фильтр</p>
+                    </div>
+                    <div class="acc-content"></div>
+                </div>
+                {{#each good}}
+
+                <div onclick="open_good_modal('{{this._id}}')" class="good-block">
+                    <img class="good-img" src="/getImg/{{this.imgName}}" alt="">
+                    <p class="good-name">{{this.name}}</p>
+                    <div class="wrap-good-control">
+                        <div class="good-control">
+                            <img src="/images/loved.png" alt="">
+                            <img src="/images/korzina.png" alt="">
+                        </div>
+                        <p class="price">{{this.price}} грн</p>
+                    </div>
+                </div>
+                {{/each}}
+
+               
+            </div>
+        </div>
+    </div>
+    <script src="/js/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollToPlugin.min.js"></script>
+</body>
+</html>

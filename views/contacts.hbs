@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/bootstrap-grid.css">
+<link rel="stylesheet" href="/css/main.css">
+    <title>{{title}}</title>
+</head>
+<body>
+<script src="/jquery.js"></script>
+{{> mobileMenu}}
+<div id="top" class="container-fluid modal-wrap">
+        <div class="row modal">
+            <div class="row"><p class="close-modal">Закрыть</p></div>
+    </div>
+    </div>
+    <div class="container-fluid">
+        {{> header}}
+        <div class="row no-filter-wrap"><div class="edit-button-h2"><h2>Контакты</h2> <a class="admin" href="/contacts/edit"><img src="/images/edit.png" alt=""></a></div></div>
+        <div class="row no-filter-wrap">
+            <div >
+                <p>{{text}}</p>
+            </div>
+        </div>
+    </div>
+<script src="/js/index.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollToPlugin.min.js"></script>
+</body>
+</html>

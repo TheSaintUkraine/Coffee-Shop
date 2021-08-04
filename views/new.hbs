@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/bootstrap-grid.css">
+<link rel="stylesheet" href="/css/main.css">
+<script src="jquery.js"></script>
+    <title>{{title}}</title>
+</head>
+<body>
+    {{> mobileMenu}}
+    <div id="top" class="container-fluid modal-wrap">
+        <div class="row modal">
+            <div class="row"><p class="close-modal">Закрыть</p></div>
+    </div>
+    </div>
+    <div class="container-fluid">
+        {{> header}}
+        <div class="row row-center">
+            <h2>Новый продукт</h2>
+        </div>
+
+        <div class="row row-center">
+            <div class="admin-register">
+                <input type="text" id="name_coffee" placeholder="Название">
+                <input type="text" id="price_coffee" placeholder="Цена">
+                <select name="" id="type_coffee">
+                    <option value="">Вид кофе</option>
+                    <option value="Ароматизированний">Ароматизированний</option>
+                    <option value="Моносорт">Моносорт</option>
+                    <option value="Без кофеина">Без кофеина</option>
+                    <option value="Ароматизированний">Органический</option>
+                    <option value="Бленд">Бленд</option>
+                </select>
+
+                <select name="" id="weight_coffee">
+                    <option value="">Вес зерно</option>
+                    <option value="200 г">200 г</option>
+                    <option value="340 г">340 г</option>
+                    <option value="907 г">907 г</option>                                       
+                    <option value="2.268 кг.">2.268 кг.</option>
+                    <option value="3 кг">3 кг</option>
+                </select>
+
+                <select name="" id="country_coffee">
+                    <option value="">Страна производитель</option>
+                    <option value="Канада">Канада</option>
+                    <option value="Польша">Польша</option>
+                    <option value="Австрия">Австрия</option>
+                    <option value="Бразилия">Бразилия</option>
+                    <option value="Франция">Франция</option>
+                </select>
+
+                <select name="" id="roasting_coffee">
+                    <option value="">Обжарка</option>
+                    <option value="Светло-средняя">Светло-средняя</option>
+                    <option value="Средняя">Средняя</option>
+                    <option value="Средне-темная">Средне-темная</option>
+                    <option value="Темная">Темная</option>
+                 
+                </select>
+                <select name="" id="sort_coffee">
+                    <option value="">Сорт кофе</option>
+                    <option value="100% Арабика">100% Арабика</option>
+                    <option value="Смесь">Смесь</option>
+                </select>
+                <form action="/imgUpload"  class="form-upload" method="POST" enctype="multipart/form-data">
+                    <label class="" for="img-upload"><div class="black-button black-button-new">Загрузить изображение</div></label>
+                    <input onchange="formFileChanged()" style="display: none;" type="file" name="file" accept=".png,.jpg,.jpeg" id="img-upload">
+                </form>
+                <img class="form-upload-img" src="/images/good.png" alt="">
+                <div class="wrap-black-button">
+                    <button onclick="newProduct()" class="black-button"> Подвердить</button>
+                    <p>Отменить</p>
+                </div>
+            </div> 
+            
+        </div>
+    </div>
+        
+<script src="/js/index.js"></script>
+<script src="/js/admin.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollToPlugin.min.js"></script>
+</body>
+</html>
